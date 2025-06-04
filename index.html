@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Candidate Filter Portaltitle</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👔</text></svg>">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-content">
+      <h1>
+        <i class="fas fa-user-tie"></i>
+        <span>TalentMatch</span> Pro
+      </h1>
+      <div class="header-actions">
+        <button id="exportBtn" class="btn-secondary">
+          <i class="fas fa-download"></i> Export
+        </button>
+        <button id="newSearchBtn" class="btn-primary">
+          <i class="fas fa-plus"></i> New Search
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-container">
+    <aside class="sidebar">
+      <div class="filter-section">
+        <h2><i class="fas fa-filter"></i> Filters</h2>
+        
+        <div class="filter-group">
+          <label for="skillInput"><i class="fas fa-code"></i> Skills</label>
+          <div class="input-with-icon">
+            <input id="skillInput" type="text" placeholder="JavaScript, Python, React..." autocomplete="off" />
+            <i class="fas fa-magic"></i>
+          </div>
+          <div id="skillSuggestions" class="suggestions-container"></div>
+        </div>
+        
+        <div class="filter-group">
+          <label for="experienceInput"><i class="fas fa-briefcase"></i> Min Experience</label>
+          <div class="input-with-icon">
+            <input id="experienceInput" type="number" min="0" max="20" placeholder="Years" />
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="range-slider">
+            <input type="range" id="expRange" min="0" max="10" value="0" />
+            <div class="range-labels">
+              <span>0</span>
+              <span>5</span>
+              <span>10+</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <label for="locationInput"><i class="fas fa-map-marker-alt"></i> Location</label>
+          <div class="input-with-icon">
+            <input id="locationInput" type="text" placeholder="City or Remote" />
+            <i class="fas fa-search-location"></i>
+          </div>
+          <div id="locationSuggestions" class="suggestions-container"></div>
+        </div>
+        
+        <div class="filter-group">
+          <label for="jobInput"><i class="fas fa-user-md"></i> Job Role</label>
+          <div class="input-with-icon">
+            <input id="jobInput" type="text" placeholder="Developer, Manager, etc." />
+            <i class="fas fa-id-card"></i>
+          </div>
+          <div id="jobSuggestions" class="suggestions-container"></div>
+        </div>
+        
+        <div class="filter-actions">
+          <button id="filterBtn" class="btn-primary">
+            <i class="fas fa-search"></i> Apply Filters
+          </button>
+          <button id="resetBtn" class="btn-secondary">
+            <i class="fas fa-undo"></i> Reset
+          </button>
+        </div>
+      </div>
+      
+      <div class="stats-section">
+        <h3><i class="fas fa-chart-pie"></i> Quick Stats</h3>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-value" id="totalCandidates">101</div>
+            <div class="stat-label">Total Candidates</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="filteredCandidates">101</div>
+            <div class="stat-label">Matching</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="avgExperience">3.2</div>
+            <div class="stat-label">Avg. Exp (yrs)</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="main-content">
+      <div class="results-header">
+        <h2><i class="fas fa-users"></i> Candidate Results</h2>
+        <div class="results-actions">
+          <div class="sort-options">
+            <label for="sortSelect"><i class="fas fa-sort"></i> Sort by:</label>
+            <select id="sortSelect">
+              <option value="name-asc">Name (A-Z)</option>
+              <option value="name-desc">Name (Z-A)</option>
+              <option value="exp-asc">Experience (Low-High)</option>
+              <option value="exp-desc">Experience (High-Low)</option>
+              <option value="random">Random</option>
+            </select>
+          </div>
+          <div class="view-options">
+            <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+            <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div id="candidateList" class="grid-view"></div>
+      
+      <div class="results-footer">
+        <div class="pagination">
+          <button id="prevPage" disabled><i class="fas fa-chevron-left"></i></button>
+          <span id="pageInfo">Page 1 of 5</span>
+          <button id="nextPage"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="results-count">
+          Showing <span id="showingCount">10</span> of <span id="totalCount">101</span> candidates
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="notification" id="notification"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
