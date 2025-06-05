@@ -45,6 +45,7 @@
 ## 🤝 Contributing
 
 >📢 Contributions welcome! Open an issue or submit a PR for enhancements/bug fixes.
+
 ---
 
 ## 👨‍💻 Author
