@@ -9,6 +9,7 @@
 💼 Efficiently search, filter, and manage candidate profiles based on skills, experience, location, and job roles.
 
 ---
+
 ## ✨ Features
 
 🔄 Dynamic Candidate Generation: Generate realistic profiles with diverse skills.
