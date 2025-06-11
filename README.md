@@ -33,6 +33,7 @@
 📱 Responsive design for all devices
 
 ---
+
 ## 🏁 Getting Started
 
 ### 📥 Clone the repo:
