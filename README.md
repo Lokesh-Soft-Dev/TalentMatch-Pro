@@ -41,7 +41,6 @@
 - git clone https://github.com/yourusername/TalentMatchPro.git  
 - 🖥️ Open index.html in your browser.
 - ✏️ Customize script.js and styles.css as needed.
-
 ---
 
 ## 🤝 Contributing
