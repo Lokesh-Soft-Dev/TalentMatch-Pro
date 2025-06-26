@@ -7,7 +7,6 @@
 🔍 TalentMatch Pro is a powerful candidate filtering portal designed for HR professionals and recruiters.
 
 💼 Efficiently search, filter, and manage candidate profiles based on skills, experience, location, and job roles.
-
 ---
 
 ## ✨ Features
